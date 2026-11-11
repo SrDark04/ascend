@@ -150,6 +150,34 @@ ThemeData buildTheme(Brightness brightness) {
       iconColor: colors.textMuted,
       minTileHeight: AscendShapes.minTouch + AscendSpacing.sm,
     ),
+    navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: surface,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
+      height: 72,
+      indicatorColor: scheme.primary,
+      labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+      iconTheme: WidgetStateProperty.resolveWith(
+        (states) => IconThemeData(
+          color: states.contains(WidgetState.selected)
+              ? scheme.onPrimary
+              : colors.textMuted,
+        ),
+      ),
+      labelTextStyle: WidgetStateProperty.resolveWith(
+        (states) => states.contains(WidgetState.selected)
+            ? text.labelSmall!.copyWith(
+                color: colors.primaryText,
+                fontWeight: FontWeight.w600,
+              )
+            : text.labelSmall!.copyWith(color: colors.textMuted),
+      ),
+    ),
+    snackBarTheme: SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+      contentTextStyle: text.bodyMedium?.copyWith(color: bg),
+      backgroundColor: onSurface,
+    ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: SegmentedButton.styleFrom(
         minimumSize: const Size.square(AscendShapes.minTouch),

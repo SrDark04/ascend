@@ -1,4 +1,5 @@
 import 'package:ascend/application/ports/settings_repository.dart';
+import 'package:ascend/domain/common/units.dart';
 import 'package:ascend/domain/settings/theme_preference.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -8,6 +9,7 @@ class SharedPrefsSettingsRepository implements SettingsRepository {
     : _prefs = prefs ?? SharedPreferencesAsync();
 
   static const themeKey = 'settings.theme_mode';
+  static const weightUnitKey = 'settings.weight_unit';
 
   final SharedPreferencesAsync _prefs;
 
@@ -18,4 +20,12 @@ class SharedPrefsSettingsRepository implements SettingsRepository {
   @override
   Future<void> saveThemePreference(ThemePreference preference) =>
       _prefs.setString(themeKey, preference.storageKey);
+
+  @override
+  Future<WeightUnit> loadWeightUnit() async =>
+      WeightUnit.fromStorage(await _prefs.getString(weightUnitKey));
+
+  @override
+  Future<void> saveWeightUnit(WeightUnit unit) =>
+      _prefs.setString(weightUnitKey, unit.storageKey);
 }

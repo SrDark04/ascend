@@ -235,5 +235,153 @@
   "demoBodyText": "Sube un nivel cada día.",
   "@demoBodyText": {
     "description": "Texto de muestra (tagline §7.1)."
+  },
+  "tabToday": "Hoy",
+  "@tabToday": {
+    "description": "Pestaña inferior (§7.4)."
+  },
+  "tabTrain": "Entrenar",
+  "@tabTrain": {
+    "description": "Pestaña inferior (§7.4)."
+  },
+  "tabHistory": "Historial",
+  "@tabHistory": {
+    "description": "Pestaña inferior (§7.4)."
+  },
+  "tabProgress": "Progreso",
+  "@tabProgress": {
+    "description": "Pestaña inferior (§7.4)."
+  },
+  "tabProfile": "Perfil",
+  "@tabProfile": {
+    "description": "Pestaña inferior (§7.4)."
+  },
+  "todayEmptyTitle": "Tu día",
+  "@todayEmptyTitle": {
+    "description": "Estado vacío de Hoy."
+  },
+  "todayEmptyMessage": "Aquí verás tu racha y la sesión del día.",
+  "@todayEmptyMessage": {
+    "description": "Estado vacío de Hoy."
+  },
+  "trainEmptyTitle": "Sin sesión activa",
+  "@trainEmptyTitle": {
+    "description": "Estado vacío de Entrenar."
+  },
+  "trainEmptyMessage": "Pronto podrás registrar tus series aquí. Disponible en v0.2.",
+  "@trainEmptyMessage": {
+    "description": "Estado vacío de Entrenar."
+  },
+  "historyEmptyTitle": "Sin sesiones",
+  "@historyEmptyTitle": {
+    "description": "Estado vacío de Historial."
+  },
+  "historyEmptyMessage": "Tus entrenamientos aparecerán aquí. Disponible en v0.3.",
+  "@historyEmptyMessage": {
+    "description": "Estado vacío de Historial."
+  },
+  "progressEmptyTitle": "Progreso",
+  "@progressEmptyTitle": {
+    "description": "Estado vacío de Progreso."
+  },
+  "progressEmptyMessage": "Disponible en v0.5",
+  "@progressEmptyMessage": {
+    "description": "Estado vacío de Progreso (texto pedido por el usuario)."
+  },
+  "themeOptionSystem": "Sistema",
+  "@themeOptionSystem": {
+    "description": "Opción corta: tema del sistema."
+  },
+  "themeOptionLight": "Claro",
+  "@themeOptionLight": {
+    "description": "Opción corta: tema claro."
+  },
+  "themeOptionDark": "Oscuro",
+  "@themeOptionDark": {
+    "description": "Opción corta: tema oscuro."
+  },
+  "unitsSectionTitle": "Unidad de carga",
+  "@unitsSectionTitle": {
+    "description": "Título del ajuste kg/lb."
+  },
+  "unitOptionKg": "Kilogramos",
+  "@unitOptionKg": {
+    "description": "Opción kg."
+  },
+  "unitOptionLb": "Libras",
+  "@unitOptionLb": {
+    "description": "Opción lb."
+  },
+  "unitsStorageNote": "Solo cambia cómo se muestran las cargas: los datos se guardan siempre en kg.",
+  "@unitsStorageNote": {
+    "description": "Aclaración del ajuste de unidades."
+  },
+  "aboutSectionTitle": "Acerca de",
+  "@aboutSectionTitle": {
+    "description": "Sección de Perfil."
+  },
+  "versionLabel": "Versión",
+  "@versionLabel": {
+    "description": "Etiqueta de la versión."
+  },
+  "versionValue": "{version} ({build}) · {flavor}",
+  "@versionValue": {
+    "description": "Versión, número de compilación y flavor.",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      },
+      "build": {
+        "type": "int"
+      },
+      "flavor": {
+        "type": "String"
+      }
+    }
+  },
+  "licensesLabel": "Licencias",
+  "@licensesLabel": {
+    "description": "Abre las licencias de código abierto."
+  },
+  "diagnosticsTapsLeft": "{count, plural, =1{A 1 toque del diagnóstico} other{A {count} toques del diagnóstico}}",
+  "@diagnosticsTapsLeft": {
+    "description": "Aviso al tocar la versión.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "diagnosticsSchemaPending": "Esquema: sin base de datos todavía (v0.1.0)",
+  "@diagnosticsSchemaPending": {
+    "description": "Estado del esquema antes de 0.7."
+  },
+  "diagnosticsRecentErrors": "Últimos errores",
+  "@diagnosticsRecentErrors": {
+    "description": "Sección de Diagnóstico."
+  },
+  "diagnosticsNoErrors": "Sin errores registrados",
+  "@diagnosticsNoErrors": {
+    "description": "Diagnóstico sin errores."
+  },
+  "diagnosticsDevTools": "Herramientas de desarrollo",
+  "@diagnosticsDevTools": {
+    "description": "Sección solo en dev."
+  },
+  "exportLogAction": "Exportar log",
+  "@exportLogAction": {
+    "description": "Botón para compartir el registro."
+  },
+  "exportLogSubject": "Registro de Ascend",
+  "@exportLogSubject": {
+    "description": "Asunto al compartir el log."
+  },
+  "exportLogFailed": "No se pudo exportar el registro",
+  "@exportLogFailed": {
+    "description": "Error al exportar."
+  },
+  "exportLogPrivacy": "El registro solo contiene eventos técnicos, sin datos de salud ni de entrenamiento. Tú eliges con quién compartirlo.",
+  "@exportLogPrivacy": {
+    "description": "Aviso de privacidad del log."
   }
 }

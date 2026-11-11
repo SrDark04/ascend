@@ -5,6 +5,7 @@ import 'package:alchemist/alchemist.dart';
 import 'package:ascend/ui/components/angled_card.dart';
 import 'package:ascend/ui/components/ascend_button.dart';
 import 'package:ascend/ui/components/ascend_chip.dart';
+import 'package:ascend/ui/components/empty_state.dart';
 import 'package:ascend/ui/components/number_stepper.dart';
 import 'package:ascend/ui/components/stat_tile.dart';
 import 'package:flutter/material.dart';
@@ -146,6 +147,26 @@ void main() {
           width: 300,
         ),
       ],
+    ),
+  );
+
+  goldenTest(
+    'EmptyState en claro y oscuro',
+    fileName: 'empty_state',
+    builder: () => GoldenTestGroup(
+      columns: 2,
+      children: themedScenarios(
+        'progreso',
+        (_) => const SizedBox(
+          height: 260,
+          child: EmptyState(
+            icon: Icons.trending_up,
+            title: 'Progreso',
+            message: 'Disponible en v0.5',
+          ),
+        ),
+        width: 280,
+      ),
     ),
   );
 }
