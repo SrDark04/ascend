@@ -1,0 +1,20 @@
+# Análisis estricto (§0-S1, §5.1): very_good_analysis + modos estrictos.
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - lib/**.g.dart
+    - lib/**.freezed.dart
+    - lib/l10n/gen/**
+
+linter:
+  rules:
+    # App, no paquete público: no exigimos dartdoc en toda la API.
+    public_member_api_docs: false
