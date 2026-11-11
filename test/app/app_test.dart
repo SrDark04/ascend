@@ -1,5 +1,6 @@
 import 'package:ascend/app/app.dart';
 import 'package:ascend/app/app_config.dart';
+import 'package:ascend/features/diagnostics/diagnostics_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,15 +14,22 @@ void main() {
         ),
       );
 
-  testWidgets('muestra el nombre del flavor dev', (tester) async {
+  testWidgets('dev muestra su nombre y el acceso a Diagnóstico', (
+    tester,
+  ) async {
     await pumpWith(tester, AppConfig.dev);
     expect(find.text('Ascend Dev'), findsOneWidget);
     final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
     expect(app.title, 'Ascend Dev');
+
+    await tester.tap(find.text('Diagnóstico'));
+    await tester.pumpAndSettle();
+    expect(find.byType(DiagnosticsScreen), findsOneWidget);
   });
 
-  testWidgets('muestra el nombre del flavor prod', (tester) async {
+  testWidgets('prod no muestra el acceso a Diagnóstico', (tester) async {
     await pumpWith(tester, AppConfig.prod);
     expect(find.text('Ascend'), findsOneWidget);
+    expect(find.text('Diagnóstico'), findsNothing);
   });
 }

@@ -54,3 +54,9 @@ android/key.properties
 *.keystore
 build/
 .fvm/flutter_sdk
+
+# Hojas de revisión de tool/prepare_assets.py (se regeneran)
+tool/out/
+
+# Código generado por gen-l10n (flutter pub get lo regenera)
+lib/l10n/gen/

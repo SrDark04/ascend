@@ -1,0 +1,55 @@
+{
+  "@@locale": "es",
+
+  "diagnosticsTitle": "Diagnóstico",
+  "@diagnosticsTitle": { "description": "Título de la pantalla oculta de diagnóstico (§5.5.7)." },
+
+  "diagnosticsFlavor": "Variante: {flavor}",
+  "@diagnosticsFlavor": {
+    "description": "Flavor de compilación (dev o prod).",
+    "placeholders": { "flavor": { "type": "String" } }
+  },
+
+  "diagnosticsDatabase": "Base de datos: {name}",
+  "@diagnosticsDatabase": {
+    "description": "Nombre del archivo de base de datos del flavor.",
+    "placeholders": { "name": { "type": "String" } }
+  },
+
+  "levelGalleryTitle": "Galería de niveles",
+  "@levelGalleryTitle": { "description": "Pantalla de revisión de las 6 insignias de racha." },
+
+  "levelGallerySubtitle": "Revisión de las insignias en ambos temas",
+  "@levelGallerySubtitle": { "description": "Subtítulo de la entrada a la galería en Diagnóstico." },
+
+  "themeLight": "Tema claro",
+  "@themeLight": { "description": "Nombre del tema claro." },
+
+  "themeDark": "Tema oscuro",
+  "@themeDark": { "description": "Nombre del tema oscuro." },
+
+  "ascendLevel1": "Nivel 1",
+  "@ascendLevel1": { "description": "Nombre del nivel de ascenso 1." },
+  "ascendLevel2": "Nivel 2",
+  "@ascendLevel2": { "description": "Nombre del nivel de ascenso 2." },
+  "ascendLevel3": "Nivel 3",
+  "@ascendLevel3": { "description": "Nombre del nivel de ascenso 3." },
+  "ascendLevel4": "Nivel 4",
+  "@ascendLevel4": { "description": "Nombre del nivel de ascenso 4." },
+  "ascendLevel5": "Nivel 5",
+  "@ascendLevel5": { "description": "Nombre del nivel de ascenso 5." },
+  "ascendLevel6": "Nivel 6",
+  "@ascendLevel6": { "description": "Nombre del nivel de ascenso 6." },
+
+  "levelMinStreakDays": "{days, plural, =0{Desde el primer día} =1{Desde 1 día de racha} other{Desde {days} días de racha}}",
+  "@levelMinStreakDays": {
+    "description": "Umbral de racha para alcanzar un nivel.",
+    "placeholders": { "days": { "type": "int" } }
+  },
+
+  "levelBadgeSemantics": "Insignia del {levelName}",
+  "@levelBadgeSemantics": {
+    "description": "Etiqueta para lector de pantalla de una insignia de nivel.",
+    "placeholders": { "levelName": { "type": "String" } }
+  }
+}
