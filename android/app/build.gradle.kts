@@ -1,7 +1,35 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+}
+
+// Firma de release (§5.5.5). android/key.properties está en .gitignore y
+// apunta al keystore personal (fuera del repo). Si no existe, release se
+// firma con la clave de debug y se muestra un aviso.
+val keystorePropertiesFile = rootProject.file("key.properties")
+val keystoreProperties = Properties()
+val hasReleaseKey = keystorePropertiesFile.exists()
+if (hasReleaseKey) {
+    keystorePropertiesFile.inputStream().use { keystoreProperties.load(it) }
+}
+
+fun keyProperty(name: String): String =
+    keystoreProperties.getProperty(name)?.trim()?.takeIf { it.isNotEmpty() }
+        ?: throw GradleException("android/key.properties: falta la propiedad '$name'.")
+
+val isReleaseBuild = gradle.startParameter.taskNames.any { it.contains("Release", ignoreCase = true) }
+if (!hasReleaseKey && isReleaseBuild) {
+    logger.warn(
+        """
+        |⚠  AVISO: no existe android/key.properties.
+        |⚠  El build release se firmará con la clave de DEBUG.
+        |⚠  Una app instalada así NO se puede actualizar después con la clave real
+        |⚠  sin desinstalarla (y perder sus datos). Ver §5.5.5.
+        """.trimMargin(),
+    )
 }
 
 android {
@@ -45,11 +73,30 @@ android {
         }
     }
 
+    signingConfigs {
+        if (hasReleaseKey) {
+            create("release") {
+                keyAlias = keyProperty("keyAlias")
+                keyPassword = keyProperty("keyPassword")
+                storePassword = keyProperty("storePassword")
+                // Permite rutas con "~" (p. ej. ~/keys/ascend-release.jks).
+                val storePath = keyProperty("storeFile")
+                    .replaceFirst(Regex("^~"), System.getProperty("user.home"))
+                storeFile = file(storePath)
+                if (!storeFile!!.exists()) {
+                    throw GradleException("Keystore no encontrado: $storePath (android/key.properties).")
+                }
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = if (hasReleaseKey) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
         }
     }
 }

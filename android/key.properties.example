@@ -1,0 +1,8 @@
+# Plantilla de firma de release (§5.5.5).
+# 1. Copia este archivo a android/key.properties (está en .gitignore).
+# 2. Rellena las contraseñas que elegiste al ejecutar keytool.
+# Nunca subas key.properties ni el .jks al repositorio.
+storeFile=~/keys/ascend-release.jks
+storePassword=CAMBIAR
+keyAlias=ascend
+keyPassword=CAMBIAR
