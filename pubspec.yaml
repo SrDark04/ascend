@@ -14,8 +14,10 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^3.5.0
   intl: ^0.20.3
+  shared_preferences: ^2.5.6
 
 dev_dependencies:
+  alchemist: ^0.14.1
   flutter_launcher_icons: ^0.14.4
   flutter_native_splash: ^2.4.8
   flutter_test:
@@ -27,3 +29,33 @@ flutter:
 
   assets:
     - assets/images/streak/
+    - assets/fonts/BarlowCondensed/OFL.txt
+    - assets/fonts/IBMPlexSans/OFL.txt
+    - assets/fonts/IBMPlexMono/OFL.txt
+
+  # Fuentes empaquetadas (OFL, §7.3). Sin descargas en tiempo de ejecución.
+  fonts:
+    - family: BarlowCondensed
+      fonts:
+        - asset: assets/fonts/BarlowCondensed/BarlowCondensed-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/BarlowCondensed/BarlowCondensed-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/BarlowCondensed/BarlowCondensed-ExtraBold.ttf
+          weight: 800
+    - family: IBMPlexSans
+      fonts:
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Bold.ttf
+          weight: 700
+    - family: IBMPlexMono
+      fonts:
+        - asset: assets/fonts/IBMPlexMono/IBMPlexMono-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/IBMPlexMono/IBMPlexMono-Medium.ttf
+          weight: 500

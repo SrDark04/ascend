@@ -1,4 +1,5 @@
 import 'package:ascend/app/app_config.dart';
+import 'package:ascend/features/diagnostics/design_system_screen.dart';
 import 'package:ascend/features/levels/level_gallery_screen.dart';
 import 'package:ascend/l10n/gen/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,18 @@ class DiagnosticsScreen extends ConsumerWidget {
             leading: const Icon(Icons.storage_outlined),
             title: Text(l10n.diagnosticsDatabase(config.databaseName)),
           ),
-          if (config.isDev)
+          if (config.isDev) ...[
+            ListTile(
+              leading: const Icon(Icons.palette_outlined),
+              title: Text(l10n.designSystemTitle),
+              subtitle: Text(l10n.designSystemSubtitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const DesignSystemScreen(),
+                ),
+              ),
+            ),
             ListTile(
               leading: const Icon(Icons.military_tech_outlined),
               title: Text(l10n.levelGalleryTitle),
@@ -38,6 +50,7 @@ class DiagnosticsScreen extends ConsumerWidget {
                 ),
               ),
             ),
+          ],
         ],
       ),
     );

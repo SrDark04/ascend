@@ -1,6 +1,7 @@
 import 'package:ascend/domain/streak/ascend_levels.dart';
 import 'package:ascend/features/levels/ascend_level_l10n.dart';
 import 'package:ascend/l10n/gen/app_localizations.dart';
+import 'package:ascend/ui/theme/ascend_theme.dart';
 import 'package:flutter/material.dart';
 
 /// Galería de los 6 niveles de ascenso en tema claro y oscuro, para revisar
@@ -48,14 +49,13 @@ class _ThemedSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // El tema propio de Ascend llega en 0.5; aquí basta con forzar el brillo.
     return Theme(
-      data: ThemeData(brightness: brightness),
+      data: buildTheme(brightness),
       child: Builder(
         builder: (context) {
           final theme = Theme.of(context);
           return Material(
-            color: theme.colorScheme.surface,
+            color: theme.scaffoldBackgroundColor,
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(

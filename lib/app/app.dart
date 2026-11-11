@@ -1,24 +1,36 @@
 import 'package:ascend/app/app_config.dart';
 import 'package:ascend/features/diagnostics/diagnostics_screen.dart';
+import 'package:ascend/features/settings/theme_controller.dart';
 import 'package:ascend/l10n/gen/app_localizations.dart';
+import 'package:ascend/ui/components/ascend_button.dart';
+import 'package:ascend/ui/theme/ascend_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Raíz de la app. El tema propio llega en 0.5 y el router en 0.6.
+/// Raíz de la app. El router llega en 0.6.
 class AscendApp extends ConsumerWidget {
   const new({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final config = ref.watch(appConfigProvider);
+    final themeMode = ref.watch(themePreferenceProvider).themeMode;
     return MaterialApp(
       title: config.appName,
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      // Provisional hasta 0.5: respeta el modo claro/oscuro del sistema.
-      theme: ThemeData(brightness: Brightness.light),
-      darkTheme: ThemeData(brightness: Brightness.dark),
+      theme: buildTheme(Brightness.light),
+      darkTheme: buildTheme(Brightness.dark),
+      themeMode: themeMode,
+      // Barras del sistema acordes al tema también en pantallas sin AppBar.
+      builder: (context, child) => AnnotatedRegion<SystemUiOverlayStyle>(
+        value: Theme.of(context).brightness == Brightness.dark
+            ? SystemUiOverlayStyle.light
+            : SystemUiOverlayStyle.dark,
+        child: child!,
+      ),
       home: const _PlaceholderHome(),
     );
   }
@@ -37,13 +49,17 @@ class _PlaceholderHome extends ConsumerWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(config.appName),
+            Text(
+              config.appName,
+              style: Theme.of(context).textTheme.displaySmall,
+            ),
             // En dev, acceso directo a Diagnóstico mientras no exista Perfil.
             if (config.isDev) ...[
               const SizedBox(height: 16),
-              OutlinedButton.icon(
-                icon: const Icon(Icons.bug_report_outlined),
-                label: Text(l10n.diagnosticsTitle),
+              AscendButton(
+                variant: AscendButtonVariant.secondary,
+                icon: Icons.bug_report_outlined,
+                label: l10n.diagnosticsTitle,
                 onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute<void>(
                     builder: (_) => const DiagnosticsScreen(),

@@ -461,6 +461,12 @@ class StreakEngine {
 - **Calendario heatmap**: rojo intenso = entrenado, rojo tenue = descanso, patrón rayado = descarga, gris = perdido, contorno = pendiente.
 - Hitos: 7, 30, 50, 100, 365 días (insignias desbloqueables «niveles de ascenso»).
 
+> **[Cambio 2026-11-10 — decisión del usuario]** Los hitos de los niveles de
+> ascenso son **0 · 30 · 60 · 120 · 180 · 365 días** (niveles 1–6), en lugar de
+> «7, 30, 50, 100, 365». Implementado en `lib/domain/streak/ascend_levels.dart`.
+> Pendiente para la Fase 2 (2.9): confirmar si el desbloqueo depende de la mejor
+> racha (propuesta) o de la actual.
+
 ---
 
 ## 5. Arquitectura de software
