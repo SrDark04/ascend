@@ -30,6 +30,21 @@ android {
         versionName = flutter.versionName
     }
 
+    // Flavors (§5.5.4): se instalan lado a lado en el mismo celular.
+    flavorDimensions += "env"
+    productFlavors {
+        create("dev") {
+            dimension = "env"
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+            manifestPlaceholders["appLabel"] = "Ascend Dev"
+        }
+        create("prod") {
+            dimension = "env"
+            manifestPlaceholders["appLabel"] = "Ascend"
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
