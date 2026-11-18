@@ -352,10 +352,6 @@
       }
     }
   },
-  "diagnosticsSchemaPending": "Esquema: sin base de datos todavía (v0.1.0)",
-  "@diagnosticsSchemaPending": {
-    "description": "Estado del esquema antes de 0.7."
-  },
   "diagnosticsRecentErrors": "Últimos errores",
   "@diagnosticsRecentErrors": {
     "description": "Sección de Diagnóstico."
@@ -383,5 +379,34 @@
   "exportLogPrivacy": "El registro solo contiene eventos técnicos, sin datos de salud ni de entrenamiento. Tú eliges con quién compartirlo.",
   "@exportLogPrivacy": {
     "description": "Aviso de privacidad del log."
+  },
+  "diagnosticsSchemaEncrypted": "Esquema v{version} · cifrada con SQLCipher {cipher}",
+  "@diagnosticsSchemaEncrypted": {
+    "description": "Estado de la BD.",
+    "placeholders": {
+      "version": {
+        "type": "int"
+      },
+      "cipher": {
+        "type": "String"
+      }
+    }
+  },
+  "diagnosticsSchemaPlain": "Esquema v{version} · ⚠ SIN cifrar",
+  "@diagnosticsSchemaPlain": {
+    "description": "Estado de la BD si no está cifrada (no debería ocurrir).",
+    "placeholders": {
+      "version": {
+        "type": "int"
+      }
+    }
+  },
+  "diagnosticsDatabaseError": "⛔ No se pudo abrir la base de datos. Revisa el log.",
+  "@diagnosticsDatabaseError": {
+    "description": "Error de BD en Diagnóstico."
+  },
+  "diagnosticsLoading": "Cargando…",
+  "@diagnosticsLoading": {
+    "description": "Texto mientras carga."
   }
 }

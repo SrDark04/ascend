@@ -29,6 +29,10 @@ void main() {
     await openDiagnostics(t);
     expect(find.text('Variante: dev'), findsOneWidget);
     expect(find.text('Base de datos: ascend_dev.db'), findsOneWidget);
+    expect(
+      find.text('Esquema v1 · cifrada con SQLCipher 4.6.1 community'),
+      findsOneWidget,
+    );
     expect(find.text('Sin errores registrados'), findsOneWidget);
 
     await t.scrollUntilVisible(find.text('Galería de niveles'), 200);

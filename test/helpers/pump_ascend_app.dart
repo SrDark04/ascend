@@ -14,6 +14,7 @@ class AppFakes {
   final log = FakeLog();
   final sharer = FakeFileSharer();
   final clock = FixedClock(DateTime(2026, 11, 10, 18));
+  final database = FakeDatabaseDiagnostics();
 }
 
 extension PumpAscendApp on WidgetTester {
@@ -34,6 +35,7 @@ extension PumpAscendApp on WidgetTester {
             appLogProvider.overrideWithValue(f.log),
             logStoreProvider.overrideWithValue(f.log),
             fileSharerProvider.overrideWithValue(f.sharer),
+            databaseDiagnosticsProvider.overrideWithValue(f.database),
             settingsRepositoryProvider.overrideWithValue(f.settings),
           ],
           child: const AscendApp(),

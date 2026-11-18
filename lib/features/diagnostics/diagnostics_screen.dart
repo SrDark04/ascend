@@ -23,10 +23,25 @@ class DiagnosticsScreen extends ConsumerStatefulWidget {
 }
 
 class _DiagnosticsScreenState extends ConsumerState<DiagnosticsScreen> {
+  late final Future<String> _dbInfo = _describeDatabase();
   late Future<List<String>> _errors = ref
       .read(logStoreProvider)
       .recentErrors(limit: 10);
   bool _exporting = false;
+
+  Future<String> _describeDatabase() async {
+    final l10n = AppLocalizations.of(context);
+    try {
+      final info = await ref.read(databaseDiagnosticsProvider).describe();
+      final cipher = info.cipherVersion;
+      return cipher == null
+          ? l10n.diagnosticsSchemaPlain(info.schemaVersion)
+          : l10n.diagnosticsSchemaEncrypted(info.schemaVersion, cipher);
+    } on Object catch (e, s) {
+      ref.read(appLogProvider).error('Diagnóstico de BD falló', e, s);
+      return l10n.diagnosticsDatabaseError;
+    }
+  }
 
   Future<void> _exportLog() async {
     final l10n = AppLocalizations.of(context);
@@ -96,7 +111,11 @@ class _DiagnosticsScreenState extends ConsumerState<DiagnosticsScreen> {
           ListTile(
             leading: const Icon(Icons.storage_outlined),
             title: Text(l10n.diagnosticsDatabase(config.databaseName)),
-            subtitle: Text(l10n.diagnosticsSchemaPending),
+            subtitle: FutureBuilder<String>(
+              future: _dbInfo,
+              builder: (context, snapshot) =>
+                  Text(snapshot.data ?? l10n.diagnosticsLoading),
+            ),
           ),
           header(l10n.diagnosticsRecentErrors),
           FutureBuilder<List<String>>(

@@ -1,9 +1,12 @@
 import 'package:ascend/application/ports/app_log.dart';
+import 'package:ascend/application/ports/database_diagnostics.dart';
 import 'package:ascend/application/ports/file_sharer.dart';
 import 'package:ascend/application/ports/settings_repository.dart';
 import 'package:ascend/domain/common/clock.dart';
 import 'package:ascend/domain/common/units.dart';
+import 'package:ascend/domain/common/uuid_v7.dart';
 import 'package:ascend/domain/settings/theme_preference.dart';
+import 'package:ascend/infrastructure/db/app_database.dart';
 import 'package:ascend/infrastructure/preferences/shared_prefs_settings_repository.dart';
 import 'package:ascend/infrastructure/sharing/share_plus_file_sharer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,6 +16,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Hora actual. Nunca llamar a `DateTime.now()` fuera de aquí.
 final clockProvider = Provider<Clock>((ref) => const SystemClock());
+
+/// Ids UUID v7 para todas las filas.
+final idGeneratorProvider = Provider<UuidV7Generator>(
+  (ref) => UuidV7Generator(clock: ref.watch(clockProvider)),
+);
+
+/// BD cifrada. Se crea en `bootstrap()` (necesita la ruta y la clave).
+final appDatabaseProvider = Provider<AppDatabase>(
+  (ref) =>
+      throw UnimplementedError('appDatabaseProvider se crea en bootstrap()'),
+);
+
+final databaseDiagnosticsProvider = Provider<DatabaseDiagnostics>(
+  (ref) => ref.watch(appDatabaseProvider),
+);
 
 final settingsRepositoryProvider = Provider<SettingsRepository>(
   (ref) => SharedPrefsSettingsRepository(),

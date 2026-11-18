@@ -13,6 +13,7 @@ analyzer:
     - lib/**.g.dart
     - lib/**.freezed.dart
     - lib/l10n/gen/**
+    - test/drift/**/generated/**
 
 linter:
   rules:

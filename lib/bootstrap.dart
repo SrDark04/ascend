@@ -10,15 +10,19 @@ import 'package:ascend/app/providers.dart';
 import 'package:ascend/domain/common/clock.dart';
 import 'package:ascend/domain/common/units.dart';
 import 'package:ascend/domain/settings/theme_preference.dart';
+import 'package:ascend/infrastructure/db/app_database.dart';
+import 'package:ascend/infrastructure/db/database_key.dart';
+import 'package:ascend/infrastructure/db/open_database.dart';
 import 'package:ascend/infrastructure/logging/rotating_file_log.dart';
 import 'package:ascend/infrastructure/preferences/shared_prefs_settings_repository.dart';
+import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 
 /// Arranque común a todos los flavors: registro local, captura de errores,
-/// ajustes guardados y `ProviderScope`. La BD se abre aquí en 0.7.
+/// BD cifrada, ajustes guardados y `ProviderScope`.
 Future<void> bootstrap(AppConfig config) async {
   WidgetsFlutterBinding.ensureInitialized();
   registerFontLicenses();
@@ -32,6 +36,8 @@ Future<void> bootstrap(AppConfig config) async {
   );
   installErrorHandlers(log);
   log.info('Arranque ${config.flavor.name} $appVersion+$appBuildNumber');
+
+  final database = AppDatabase(_lazyEncryptedDatabase(config, supportDir, log));
 
   final settings = SharedPrefsSettingsRepository();
   var theme = ThemePreference.system;
@@ -49,6 +55,7 @@ Future<void> bootstrap(AppConfig config) async {
       overrides: [
         appConfigProvider.overrideWithValue(config),
         clockProvider.overrideWithValue(clock),
+        appDatabaseProvider.overrideWithValue(database),
         appLogProvider.overrideWithValue(log),
         logStoreProvider.overrideWithValue(log),
         settingsRepositoryProvider.overrideWithValue(settings),
@@ -58,4 +65,28 @@ Future<void> bootstrap(AppConfig config) async {
       child: const AscendApp(),
     ),
   );
+}
+
+/// La BD se abre en la primera consulta, en un isolate de fondo, para no
+/// retrasar el primer frame. Archivo distinto por flavor (§5.5.4).
+QueryExecutor _lazyEncryptedDatabase(
+  AppConfig config,
+  Directory supportDir,
+  RotatingFileLog log,
+) {
+  return LazyDatabase(() async {
+    final file = File('${supportDir.path}/${config.databaseName}');
+    try {
+      final key = await obtainDatabaseKey(
+        store: SecureStorageDatabaseKeyStore(
+          storageKey: 'ascend.db_key.${config.databaseName}',
+        ),
+        databaseExists: file.existsSync(),
+      );
+      return openEncryptedDatabase(file, key);
+    } on Object catch (e, s) {
+      log.error('No se pudo abrir la base de datos', e, s);
+      rethrow;
+    }
+  });
 }

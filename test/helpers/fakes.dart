@@ -1,4 +1,5 @@
 import 'package:ascend/application/ports/app_log.dart';
+import 'package:ascend/application/ports/database_diagnostics.dart';
 import 'package:ascend/application/ports/file_sharer.dart';
 import 'package:ascend/application/ports/settings_repository.dart';
 import 'package:ascend/domain/common/units.dart';
@@ -56,4 +57,10 @@ class FakeFileSharer implements FileSharer {
   @override
   Future<void> shareFile(String path, {String? subject}) async =>
       shared.add(path);
+}
+
+class FakeDatabaseDiagnostics implements DatabaseDiagnostics {
+  @override
+  Future<DatabaseInfo> describe() async =>
+      const DatabaseInfo(schemaVersion: 1, cipherVersion: '4.6.1 community');
 }
