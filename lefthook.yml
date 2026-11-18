@@ -1,0 +1,11 @@
+# Ganchos locales (§5.5.7, §10.3): reemplazan al CI en la nube.
+# Activar una vez con: lefthook install
+pre-commit:
+  piped: true # se detiene en el primer fallo
+  jobs:
+    - name: format
+      run: dart format --set-exit-if-changed .
+    - name: analyze
+      run: flutter analyze
+    - name: test
+      run: flutter test

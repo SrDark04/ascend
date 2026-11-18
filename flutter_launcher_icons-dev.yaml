@@ -1,0 +1,10 @@
+# Ícono del flavor dev (§5.5.4). Assets generados por tool/prepare_assets.py.
+# Regenerar con: dart run flutter_launcher_icons
+flutter_launcher_icons:
+  android: true
+  ios: false # iOS no tiene flavors todavía (§5.5.6)
+  min_sdk_android: 26
+  image_path: "assets/icon/icon_dev.png"
+  # Tono del papel muestreado de Icon.png (#E1D8CE ≈ #E9E4DC del brief).
+  adaptive_icon_background: "#E1D8CE"
+  adaptive_icon_foreground: "assets/icon/icon_foreground_dev.png"

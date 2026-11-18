@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Negro tinta (AscendPalette.ink, §7.2): fondo de la ventana nativa
+         detrás de Flutter, para que no haya destello blanco tras el splash. -->
+    <color name="ascend_ink">#0B0B0D</color>
+</resources>

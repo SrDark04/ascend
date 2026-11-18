@@ -1,0 +1,13 @@
+# Splash nativo en negro tinta para evitar el destello blanco (§7.2).
+# Regenerar con: dart run flutter_native_splash:create
+flutter_native_splash:
+  color: "#0B0B0D"
+  color_dark: "#0B0B0D" # misma imagen en claro y oscuro (sin duplicar ~4 MB)
+  image: assets/splash/splash.png
+  android_12:
+    color: "#0B0B0D"
+    color_dark: "#0B0B0D"
+    image: assets/splash/splash_android12.png
+  android: true
+  ios: false
+  web: false

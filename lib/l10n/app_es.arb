@@ -1,0 +1,412 @@
+{
+  "@@locale": "es",
+  "diagnosticsTitle": "Diagnóstico",
+  "@diagnosticsTitle": {
+    "description": "Título de la pantalla oculta de diagnóstico (§5.5.7)."
+  },
+  "diagnosticsFlavor": "Variante: {flavor}",
+  "@diagnosticsFlavor": {
+    "description": "Flavor de compilación (dev o prod).",
+    "placeholders": {
+      "flavor": {
+        "type": "String"
+      }
+    }
+  },
+  "diagnosticsDatabase": "Base de datos: {name}",
+  "@diagnosticsDatabase": {
+    "description": "Nombre del archivo de base de datos del flavor.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "levelGalleryTitle": "Galería de niveles",
+  "@levelGalleryTitle": {
+    "description": "Pantalla de revisión de las 6 insignias de racha."
+  },
+  "levelGallerySubtitle": "Revisión de las insignias en ambos temas",
+  "@levelGallerySubtitle": {
+    "description": "Subtítulo de la entrada a la galería en Diagnóstico."
+  },
+  "themeLight": "Tema claro",
+  "@themeLight": {
+    "description": "Nombre del tema claro."
+  },
+  "themeDark": "Tema oscuro",
+  "@themeDark": {
+    "description": "Nombre del tema oscuro."
+  },
+  "ascendLevel1": "Nivel 1",
+  "@ascendLevel1": {
+    "description": "Nombre del nivel de ascenso 1."
+  },
+  "ascendLevel2": "Nivel 2",
+  "@ascendLevel2": {
+    "description": "Nombre del nivel de ascenso 2."
+  },
+  "ascendLevel3": "Nivel 3",
+  "@ascendLevel3": {
+    "description": "Nombre del nivel de ascenso 3."
+  },
+  "ascendLevel4": "Nivel 4",
+  "@ascendLevel4": {
+    "description": "Nombre del nivel de ascenso 4."
+  },
+  "ascendLevel5": "Nivel 5",
+  "@ascendLevel5": {
+    "description": "Nombre del nivel de ascenso 5."
+  },
+  "ascendLevel6": "Nivel 6",
+  "@ascendLevel6": {
+    "description": "Nombre del nivel de ascenso 6."
+  },
+  "levelMinStreakDays": "{days, plural, =0{Desde el primer día} =1{Desde 1 día de racha} other{Desde {days} días de racha}}",
+  "@levelMinStreakDays": {
+    "description": "Umbral de racha para alcanzar un nivel.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "levelBadgeSemantics": "Insignia del {levelName}",
+  "@levelBadgeSemantics": {
+    "description": "Etiqueta para lector de pantalla de una insignia de nivel.",
+    "placeholders": {
+      "levelName": {
+        "type": "String"
+      }
+    }
+  },
+  "themeSystem": "Según el sistema",
+  "@themeSystem": {
+    "description": "Opción de tema que sigue al sistema."
+  },
+  "themeSectionTitle": "Tema",
+  "@themeSectionTitle": {
+    "description": "Título del ajuste de tema."
+  },
+  "actionCancel": "Cancelar",
+  "@actionCancel": {
+    "description": "Botón para cerrar sin guardar."
+  },
+  "actionAccept": "Aceptar",
+  "@actionAccept": {
+    "description": "Botón para confirmar."
+  },
+  "stepperIncrease": "Aumentar {label}",
+  "@stepperIncrease": {
+    "description": "Botón + del selector numérico.",
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "stepperDecrease": "Disminuir {label}",
+  "@stepperDecrease": {
+    "description": "Botón − del selector numérico.",
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "stepperEditHint": "Escribir el valor",
+  "@stepperEditHint": {
+    "description": "Acción del lector de pantalla al tocar el número."
+  },
+  "stepperOutOfRange": "Introduce un valor entre {min} y {max}",
+  "@stepperOutOfRange": {
+    "description": "Error de entrada directa.",
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "designSystemTitle": "Sistema de diseño",
+  "@designSystemTitle": {
+    "description": "Pantalla de revisión de componentes (solo dev)."
+  },
+  "designSystemSubtitle": "Tema, tipografía y componentes base",
+  "@designSystemSubtitle": {
+    "description": "Subtítulo de la entrada en Diagnóstico."
+  },
+  "demoTypography": "Tipografía",
+  "@demoTypography": {
+    "description": "Sección de la demo."
+  },
+  "demoButtons": "Botones",
+  "@demoButtons": {
+    "description": "Sección de la demo."
+  },
+  "demoCards": "Tarjetas y métricas",
+  "@demoCards": {
+    "description": "Sección de la demo."
+  },
+  "demoInputs": "Controles",
+  "@demoInputs": {
+    "description": "Sección de la demo."
+  },
+  "demoPrimaryAction": "Empezar sesión",
+  "@demoPrimaryAction": {
+    "description": "Ejemplo de botón principal."
+  },
+  "demoSecondaryAction": "Repetir sesión",
+  "@demoSecondaryAction": {
+    "description": "Ejemplo de botón secundario."
+  },
+  "demoGhostAction": "Ver historial",
+  "@demoGhostAction": {
+    "description": "Ejemplo de botón fantasma."
+  },
+  "demoDisabledAction": "No disponible",
+  "@demoDisabledAction": {
+    "description": "Ejemplo de botón deshabilitado."
+  },
+  "demoStreakLabel": "Racha actual",
+  "@demoStreakLabel": {
+    "description": "Ejemplo de métrica."
+  },
+  "demoBestStreak": "Mejor: {days} días",
+  "@demoBestStreak": {
+    "description": "Ejemplo de nota.",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "demoVolumeLabel": "Tonelaje",
+  "@demoVolumeLabel": {
+    "description": "Ejemplo de métrica."
+  },
+  "unitDays": "días",
+  "@unitDays": {
+    "description": "Unidad de días."
+  },
+  "unitKg": "kg",
+  "@unitKg": {
+    "description": "Unidad de kilogramos."
+  },
+  "loadLabel": "Carga",
+  "@loadLabel": {
+    "description": "Nombre del valor de carga."
+  },
+  "repsLabel": "Repeticiones",
+  "@repsLabel": {
+    "description": "Nombre del valor de repeticiones."
+  },
+  "rirLabel": "RIR",
+  "@rirLabel": {
+    "description": "Repeticiones en reserva (§3.1)."
+  },
+  "rirFivePlus": "5+",
+  "@rirFivePlus": {
+    "description": "Ficha de RIR 5 o más."
+  },
+  "rirSemantics": "RIR {value}",
+  "@rirSemantics": {
+    "description": "Etiqueta de ficha de RIR para lector de pantalla.",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "rirFivePlusSemantics": "RIR 5 o más",
+  "@rirFivePlusSemantics": {
+    "description": "Etiqueta de la ficha 5+."
+  },
+  "demoCardTitle": "Press de banca",
+  "@demoCardTitle": {
+    "description": "Ejemplo de tarjeta."
+  },
+  "demoCardBody": "Mejor serie: 100 kg × 5 a RIR 2",
+  "@demoCardBody": {
+    "description": "Ejemplo de tarjeta."
+  },
+  "demoBodyText": "Sube un nivel cada día.",
+  "@demoBodyText": {
+    "description": "Texto de muestra (tagline §7.1)."
+  },
+  "tabToday": "Hoy",
+  "@tabToday": {
+    "description": "Pestaña inferior (§7.4)."
+  },
+  "tabTrain": "Entrenar",
+  "@tabTrain": {
+    "description": "Pestaña inferior (§7.4)."
+  },
+  "tabHistory": "Historial",
+  "@tabHistory": {
+    "description": "Pestaña inferior (§7.4)."
+  },
+  "tabProgress": "Progreso",
+  "@tabProgress": {
+    "description": "Pestaña inferior (§7.4)."
+  },
+  "tabProfile": "Perfil",
+  "@tabProfile": {
+    "description": "Pestaña inferior (§7.4)."
+  },
+  "todayEmptyTitle": "Tu día",
+  "@todayEmptyTitle": {
+    "description": "Estado vacío de Hoy."
+  },
+  "todayEmptyMessage": "Aquí verás tu racha y la sesión del día.",
+  "@todayEmptyMessage": {
+    "description": "Estado vacío de Hoy."
+  },
+  "trainEmptyTitle": "Sin sesión activa",
+  "@trainEmptyTitle": {
+    "description": "Estado vacío de Entrenar."
+  },
+  "trainEmptyMessage": "Pronto podrás registrar tus series aquí. Disponible en v0.2.",
+  "@trainEmptyMessage": {
+    "description": "Estado vacío de Entrenar."
+  },
+  "historyEmptyTitle": "Sin sesiones",
+  "@historyEmptyTitle": {
+    "description": "Estado vacío de Historial."
+  },
+  "historyEmptyMessage": "Tus entrenamientos aparecerán aquí. Disponible en v0.3.",
+  "@historyEmptyMessage": {
+    "description": "Estado vacío de Historial."
+  },
+  "progressEmptyTitle": "Progreso",
+  "@progressEmptyTitle": {
+    "description": "Estado vacío de Progreso."
+  },
+  "progressEmptyMessage": "Disponible en v0.5",
+  "@progressEmptyMessage": {
+    "description": "Estado vacío de Progreso (texto pedido por el usuario)."
+  },
+  "themeOptionSystem": "Sistema",
+  "@themeOptionSystem": {
+    "description": "Opción corta: tema del sistema."
+  },
+  "themeOptionLight": "Claro",
+  "@themeOptionLight": {
+    "description": "Opción corta: tema claro."
+  },
+  "themeOptionDark": "Oscuro",
+  "@themeOptionDark": {
+    "description": "Opción corta: tema oscuro."
+  },
+  "unitsSectionTitle": "Unidad de carga",
+  "@unitsSectionTitle": {
+    "description": "Título del ajuste kg/lb."
+  },
+  "unitOptionKg": "Kilogramos",
+  "@unitOptionKg": {
+    "description": "Opción kg."
+  },
+  "unitOptionLb": "Libras",
+  "@unitOptionLb": {
+    "description": "Opción lb."
+  },
+  "unitsStorageNote": "Solo cambia cómo se muestran las cargas: los datos se guardan siempre en kg.",
+  "@unitsStorageNote": {
+    "description": "Aclaración del ajuste de unidades."
+  },
+  "aboutSectionTitle": "Acerca de",
+  "@aboutSectionTitle": {
+    "description": "Sección de Perfil."
+  },
+  "versionLabel": "Versión",
+  "@versionLabel": {
+    "description": "Etiqueta de la versión."
+  },
+  "versionValue": "{version} ({build}) · {flavor}",
+  "@versionValue": {
+    "description": "Versión, número de compilación y flavor.",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      },
+      "build": {
+        "type": "int"
+      },
+      "flavor": {
+        "type": "String"
+      }
+    }
+  },
+  "licensesLabel": "Licencias",
+  "@licensesLabel": {
+    "description": "Abre las licencias de código abierto."
+  },
+  "diagnosticsTapsLeft": "{count, plural, =1{A 1 toque del diagnóstico} other{A {count} toques del diagnóstico}}",
+  "@diagnosticsTapsLeft": {
+    "description": "Aviso al tocar la versión.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "diagnosticsRecentErrors": "Últimos errores",
+  "@diagnosticsRecentErrors": {
+    "description": "Sección de Diagnóstico."
+  },
+  "diagnosticsNoErrors": "Sin errores registrados",
+  "@diagnosticsNoErrors": {
+    "description": "Diagnóstico sin errores."
+  },
+  "diagnosticsDevTools": "Herramientas de desarrollo",
+  "@diagnosticsDevTools": {
+    "description": "Sección solo en dev."
+  },
+  "exportLogAction": "Exportar log",
+  "@exportLogAction": {
+    "description": "Botón para compartir el registro."
+  },
+  "exportLogSubject": "Registro de Ascend",
+  "@exportLogSubject": {
+    "description": "Asunto al compartir el log."
+  },
+  "exportLogFailed": "No se pudo exportar el registro",
+  "@exportLogFailed": {
+    "description": "Error al exportar."
+  },
+  "exportLogPrivacy": "El registro solo contiene eventos técnicos, sin datos de salud ni de entrenamiento. Tú eliges con quién compartirlo.",
+  "@exportLogPrivacy": {
+    "description": "Aviso de privacidad del log."
+  },
+  "diagnosticsSchemaEncrypted": "Esquema v{version} · cifrada con SQLCipher {cipher}",
+  "@diagnosticsSchemaEncrypted": {
+    "description": "Estado de la BD.",
+    "placeholders": {
+      "version": {
+        "type": "int"
+      },
+      "cipher": {
+        "type": "String"
+      }
+    }
+  },
+  "diagnosticsSchemaPlain": "Esquema v{version} · ⚠ SIN cifrar",
+  "@diagnosticsSchemaPlain": {
+    "description": "Estado de la BD si no está cifrada (no debería ocurrir).",
+    "placeholders": {
+      "version": {
+        "type": "int"
+      }
+    }
+  },
+  "diagnosticsDatabaseError": "⛔ No se pudo abrir la base de datos. Revisa el log.",
+  "@diagnosticsDatabaseError": {
+    "description": "Error de BD en Diagnóstico."
+  },
+  "diagnosticsLoading": "Cargando…",
+  "@diagnosticsLoading": {
+    "description": "Texto mientras carga."
+  }
+}
